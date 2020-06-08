@@ -79,8 +79,28 @@ for i in range(iterations):
 # Calculate Probability
 print("Raw Frequency:")
 print(board)
-print("Percentage Based Frequency:")
-board = [f"{round(i / iterations * 100, 4)}%" for i in board]
+
+#print("Percentage Based Frequency:")
+# Precomputations for the next set of statistics
+board = [round(i / iterations * 100, 4) for i in board]
 print(board)
 
-# TODO: Calculate Set based frequency
+
+setTable = {
+    "Brown": round(board[1] + board[3], 4),
+    "Light Blues": round(board[6] + board[8] + board[9], 4),
+    "Pinks": round(board[11] + board[13] + board[14], 4),
+    "Oranges": round(board[16] + board[18] + board[19], 4),
+    "Reds": round(board[21] + board[23] + board[24], 4),
+    "Yellows": round(board[26] + board[27] + board[29], 4),
+    "Greens": round(board[31] + board[32] + board[34], 4),
+    "Dark Blues": round(board[37] + board[39], 4),
+    "Station": round(board[5] + board[15] + board[25] + board[35], 4),
+    "Utilities": round(board[12] + board[28], 4),
+    "Jail": round(board[10], 4),
+}
+
+for k, v in setTable.items():
+    print(f"{k}: {v}%")
+
+# TODO: Utilities need to record what dies led to them
