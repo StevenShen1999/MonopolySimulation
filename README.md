@@ -18,5 +18,23 @@ Note: for the sake of simplicity a few things have been excluded, such as the pa
 
 <br>
 
+# What is the result?
+### 1,000,000 Iterations
+Sets | Probability
+---- | -----------
+Browns | 4.4425% 
+Light Blues | 6.8938% 
+Pinks | 7.6058% 
+Oranges | 8.543%
+Reds | 8.695%
+Yellows | 7.9265%
+Greens | 7.8613%
+Dark Blues | 5.0376%
+Station | 11.1829%
+Utilities | 5.4089%
+Jail | 5.9911%
+
+<br>
+
 ### Afterwords
-Feel free to copy, edit, reuse this script however you like. It's not the most efficient nor I suppose the most "realistic", so use this script at your own peril :)
+Feel free to copy, edit, reuse this script however you like. It's not the most efficient nor I suppose the most "realistic", so use this script and its results at your own peril :)
