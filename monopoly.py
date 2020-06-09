@@ -9,7 +9,7 @@ iterations = int(argv[1])
 # Initialise the board
 board = [0 for i in range(40)]
 
-# Initialising Chance and Treasure
+# Initialise and Shuffle Chance and Treasure cards
 chance = [0, 24, 11, "U", "R", -3, 10, 5, 39] + [None] * 7
 treasure = [0, 10] + [None] * 14
 shuffle(chance)
@@ -18,9 +18,13 @@ shuffle(treasure)
 doubles = 0
 currentPos = 0
 
+rolls = [0 for i in range(12)]
+
 for i in range(iterations):
     # Roll two dies
     dices = [randint(1, 6) for i in range(2)]
+
+    rolls[sum(dices) - 1] += 1 
 
     # Check for doubles
     if dices[0] == dices[1]:
@@ -76,6 +80,10 @@ for i in range(iterations):
 
     board[currentPos] += 1
 
+# Dice Distribution
+print("Dice Distribution:")
+print(rolls)
+
 # Calculate Probability
 print("Raw Frequency:")
 print(board)
@@ -95,12 +103,20 @@ setTable = {
     "Yellows": round(board[26] + board[27] + board[29], 4),
     "Greens": round(board[31] + board[32] + board[34], 4),
     "Dark Blues": round(board[37] + board[39], 4),
-    "Station": round(board[5] + board[15] + board[25] + board[35], 4),
+    "Stations": round(board[5] + board[15] + board[25] + board[35], 4),
     "Utilities": round(board[12] + board[28], 4),
     "Jail": round(board[10], 4),
 }
 
+"""
 for k, v in setTable.items():
     print(f"{k}: {v}%")
+"""
+
+ladder = sorted(setTable, key=lambda item: setTable[item], reverse=True)
+for i in range(len(ladder)):
+    print(f"{i + 1}: {ladder[i]}, {setTable[ladder[i]]}%")
 
 # TODO: Utilities need to record what dies led to them
+# TODO: Money: Rent, Mortgage, Optimal Price and Upgrades
+# TODO: Overall utility for a property (i.e. a score for each property)
