@@ -24,6 +24,7 @@ for i in range(iterations):
     # Roll two dies
     dices = [randint(1, 6) for i in range(2)]
 
+    # This is for calculating dice roll distribution
     rolls[sum(dices) - 1] += 1 
 
     # Check for doubles
@@ -31,6 +32,8 @@ for i in range(iterations):
         doubles += 1
         if (doubles) == 3:
             currentPos = 10
+            # Continue to the next iteration
+            continue
 
     # Check for out of boundary (i.e. finished one cycle)
     currentPos = (currentPos + sum(dices)) % 40
