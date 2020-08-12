@@ -1,8 +1,9 @@
 from sys import argv
 from random import randint, shuffle
 
-if len(argv) < 2:
+if len(argv) != 2:
     print("Usage: python3 monopoly.py [noIterations]")
+    exit(1)
 
 iterations = int(argv[1])
 
